@@ -16,9 +16,9 @@ export default {
 
 <style lang="scss">
   .character {
-    width: 5rem;
+    width: 6rem;
     position: fixed;
-    transition: all 30ms linear;
+    transition: margin 30ms linear;
   }
 
   .camera {

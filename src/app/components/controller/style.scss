@@ -1,6 +1,10 @@
 $pixel_width: 14px;
 
 .controller {
+  @media (min-width: 641px) {
+    display: none;
+  }
+
   .d-pad {
     position: fixed;
     z-index: 99999;

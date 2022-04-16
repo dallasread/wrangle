@@ -17,8 +17,8 @@
 <script>
 import Camera from '@/app/components/camera/component.vue'
 import Controller from '@/app/components/controller/component.vue'
-import Level from '@/app/lib/level/index.js'
 import Character from '@/app/lib/character/index.js'
+import Level from '@/app/lib/level/index.js'
 
 export default {
   components: {
@@ -31,6 +31,9 @@ export default {
       character: new Character(),
       level: new Level()
     }
+  },
+  mounted () {
+    this.app.commands.listen(this.character)
   }
 }
 </script>
