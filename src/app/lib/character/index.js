@@ -13,12 +13,8 @@ class Character {
     this.reverse = false
   }
 
-  updateX (val, abs) {
-    if (abs) {
-      this.positionX = val
-    } else {
-      this.positionX += val
-    }
+  updateX (val) {
+    this.positionX += val
 
     if (val < 0 && !this.reverse) {
       this.reverse = true
@@ -27,12 +23,20 @@ class Character {
     }
   }
 
-  updateY (val, abs) {
-    if (abs) {
-      this.positionY = val
-    } else {
-      this.positionY += val
-    }
+  updateY (val) {
+    this.positionY += val
+  }
+
+  updateAbsoluteX (val) {
+    this.positionX = val
+  }
+
+  updateAbsoluteY (val) {
+    this.positionY = val
+  }
+
+  updateReverse (val) {
+    this.reverse = val
   }
 
   actionA (val) {

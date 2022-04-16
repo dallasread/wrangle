@@ -9,15 +9,15 @@ class Level {
     // character.updateY(val)
   }
 
-  actionA (character) {
-    character.updateY(+1)
-    setTimeout(() => character.updateY(+1), REFRESH_RATE)
-    setTimeout(() => character.updateY(+1), REFRESH_RATE * 2)
-    setTimeout(() => character.updateY(+1), REFRESH_RATE * 3)
-    setTimeout(() => character.updateY(-1), REFRESH_RATE * 4)
-    setTimeout(() => character.updateY(-1), REFRESH_RATE * 5)
-    setTimeout(() => character.updateY(-1), REFRESH_RATE * 6)
-    setTimeout(() => character.updateY(-1), REFRESH_RATE * 7)
+  actionA (character, done) {
+    done(character.updateY(+1))
+    setTimeout(() => done(character.updateY(+1)), REFRESH_RATE)
+    setTimeout(() => done(character.updateY(+1)), REFRESH_RATE * 2)
+    setTimeout(() => done(character.updateY(+1)), REFRESH_RATE * 3)
+    setTimeout(() => done(character.updateY(-1)), REFRESH_RATE * 4)
+    setTimeout(() => done(character.updateY(-1)), REFRESH_RATE * 5)
+    setTimeout(() => done(character.updateY(-1)), REFRESH_RATE * 6)
+    setTimeout(() => done(character.updateY(-1)), REFRESH_RATE * 7)
   }
 }
 

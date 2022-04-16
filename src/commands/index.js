@@ -20,15 +20,17 @@ class Commands {
   }
 
   actionA (level, character) {
-    return (val) => {
-      level.actionA(character, val)
-      this.wire.emit('move', character)
+    return () => {
+      level.actionA(character, () => {
+        this.wire.emit('move', character)
+      })
     }
   }
 
   updateCharacter (character, data) {
-    character.updateX(data.positionX, true)
-    character.updateY(data.positionY, true)
+    character.updateAbsoluteX(data.positionX)
+    character.updateAbsoluteY(data.positionY)
+    character.updateReverse(data.reverse)
   }
 
   listen (character) {
