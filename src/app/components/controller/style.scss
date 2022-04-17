@@ -12,6 +12,8 @@ $pixel_width: 10px;
     left: 0;
     width: 40%;
     height: 50%;
+    overflow: hidden;
+    overscroll-behavior: none;
 
     .circle {
       position: absolute;
@@ -26,11 +28,11 @@ $pixel_width: 10px;
   .button-a {
     position: fixed;
     z-index: 99999;
-    bottom: $pixel_width * 4;
-    right: $pixel_width * 0.5;
+    bottom: $pixel_width * 3;
+    right: $pixel_width * 1;
     background: rgba(255, 255, 255, 0.5);
-    width: $pixel_width * 5;
-    height: $pixel_width * 5;
+    width: $pixel_width * 8;
+    height: $pixel_width * 8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 50%;
 
@@ -39,7 +41,7 @@ $pixel_width: 10px;
       color: rgba(0, 0, 0, 0.5);
       text-align: center;
       display: block;
-      margin-top: $pixel_width * 2;
+      margin-top: $pixel_width * 3.2;
     }
   }
 }
