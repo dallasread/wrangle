@@ -16,6 +16,7 @@ class Character {
     this.positionY = getOption(options, 'positionY', 0)
     this.reverse = getOption(options, 'reverse', false)
     this.speed = getOption(options, 'speed', 1)
+    this.splat = false
   }
 }
 

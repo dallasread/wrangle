@@ -23,8 +23,8 @@ const isKeyActive = (keys, key) => {
 }
 
 const PIXEL_SIZE = 10
-// const UP = 38
-// const DOWN = 40
+const UP = 38
+const DOWN = 40
 const LEFT = 37
 const RIGHT = 39
 const SPACE = 32
@@ -113,11 +113,11 @@ export default {
 
     run (currentKeys) {
       this.keydownInterval = setInterval(() => {
-        // if (isKeyActive(currentKeys, UP)) {
-        //   this.updateY(+1)
-        // } else if (isKeyActive(currentKeys, DOWN)) {
-        //   this.updateY(-1)
-        // }
+        if (isKeyActive(currentKeys, UP)) {
+          this.updateY(+1)
+        } else if (isKeyActive(currentKeys, DOWN)) {
+          this.updateY(-1)
+        }
 
         if (isKeyActive(currentKeys, LEFT)) {
           this.updateX(-1)

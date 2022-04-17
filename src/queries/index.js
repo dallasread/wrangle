@@ -18,19 +18,23 @@ class Queries {
   }
 
   characterPosition (level, character, isStatic) {
-    let position = ''
+    let style = ''
 
     if (!isStatic) {
-      position += `left: calc(50% + ${(character.positionX + level.offsetX - 3.5)}rem);`
+      style += `left: calc(50% + ${(character.positionX + level.offsetX - 3.5)}rem);`
     }
 
-    position += `margin-top: ${character.positionY * -2.5}rem;`
+    style += `top: calc(50% + ${4.5 - character.positionY}rem);`
 
     if (character.reverse) {
-      position += 'transform: scaleX(-1)'
+      style += 'transform: scaleX(-1);'
     }
 
-    return position
+    if (character.splat) {
+      style += 'transform:scale(1.33, 0.5); margin-top: 1rem;'
+    }
+
+    return style
   }
 
   levelPosition (level) {

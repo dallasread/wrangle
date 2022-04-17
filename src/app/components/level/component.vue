@@ -22,8 +22,6 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    overflow: hidden;
-    overscroll-behavior: none;
   }
 
   .level {
@@ -34,7 +32,5 @@ export default {
     left: 0;
     right: 0;
     z-index: -9;
-    overflow: hidden;
-    overscroll-behavior: none;
   }
 </style>

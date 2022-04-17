@@ -1,4 +1,7 @@
-const REFRESH_RATE = 30
+const REFRESH_RATE = 20
+const JUMP_HEIGHT = 7
+const JUMP_DELAY_AT_MAX = 3
+const ACTION_A_TIMERS = []
 
 class Level {
   constructor () {
@@ -8,22 +11,38 @@ class Level {
     ]
   }
 
-  updateX (character, val, dontShiftLevel) {
-    if (val < 0 && !character.reverse) {
+  updateX (character, delta, dontShiftLevel) {
+    if (delta < 0 && !character.reverse) {
       character.reverse = true
-    } else if (val > 0 && character.reverse) {
+    } else if (delta > 0 && character.reverse) {
       character.reverse = false
     } else {
-      character.positionX += character.speed * val
+      character.positionX += character.speed * delta
     }
 
     if (!dontShiftLevel) {
-      this.offsetX -= val
+      this.offsetX -= delta
     }
   }
 
-  updateY (character, val) {
-    character.positionY += val
+  splat (character, length) {
+    character.splat = true
+
+    setTimeout(() => {
+      character.splat = false
+    }, REFRESH_RATE * length)
+  }
+
+  updateY (character, delta) {
+    if (delta > 0) {
+      this.splat(character, 2)
+      character.positionY += delta
+    } else if (character.positionY + delta <= 0) {
+      character.positionY = 0
+      this.splat(character, 4)
+    } else {
+      character.positionY += delta
+    }
   }
 
   updateFromRemote (character, data) {
@@ -34,14 +53,17 @@ class Level {
   }
 
   actionA (character, done) {
-    done(this.updateY(character, +1))
-    setTimeout(() => done(this.updateY(character, +1)), REFRESH_RATE)
-    setTimeout(() => done(this.updateY(character, +1)), REFRESH_RATE * 2)
-    setTimeout(() => done(this.updateY(character, +1)), REFRESH_RATE * 3)
-    setTimeout(() => done(this.updateY(character, -1)), REFRESH_RATE * 6)
-    setTimeout(() => done(this.updateY(character, -1)), REFRESH_RATE * 7)
-    setTimeout(() => done(this.updateY(character, -1)), REFRESH_RATE * 8)
-    setTimeout(() => done(this.updateY(character, -1)), REFRESH_RATE * 9)
+    const startingPosition = character.positionY + 1
+
+    ACTION_A_TIMERS.forEach((a) => clearTimeout(a))
+
+    for (var i = 0; i <= JUMP_HEIGHT; i++) {
+      ACTION_A_TIMERS.push(setTimeout(() => done(this.updateY(character, +1)), REFRESH_RATE * i))
+    }
+
+    for (var n = 0; n < startingPosition + JUMP_HEIGHT; n++) {
+      ACTION_A_TIMERS.push(setTimeout(() => done(this.updateY(character, -1)), REFRESH_RATE * (JUMP_HEIGHT + JUMP_DELAY_AT_MAX + n)))
+    }
   }
 }
 
