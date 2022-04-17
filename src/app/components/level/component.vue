@@ -1,11 +1,13 @@
 <template>
-  <div
-    class="level"
-    :style="app.queries.levelPosition(level)"
-  />
-  <div
-    class="level-ground"
-  />
+  <div>
+    <div
+      class="level"
+      :style="app.queries.levelPosition(level)"
+    />
+    <div
+      class="level-ground"
+    />
+  </div>
 </template>
 
 <script>

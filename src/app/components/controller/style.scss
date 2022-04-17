@@ -6,7 +6,7 @@ $pixel_width: 10px;
   }
 
   .d-pad {
-    position: absolute;
+    position: fixed;
     z-index: 99999;
     bottom: 0;
     left: 0;
@@ -14,7 +14,7 @@ $pixel_width: 10px;
     height: 50%;
 
     .circle {
-      position: absolute;
+      position: fixed;
       background: rgba(255, 255, 255, 0.2);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       width: $pixel_width * 10;
@@ -24,7 +24,7 @@ $pixel_width: 10px;
   }
 
   .button-a {
-    position: absolute;
+    position: fixed;
     z-index: 99999;
     bottom: $pixel_width * 3;
     right: $pixel_width * 1;
