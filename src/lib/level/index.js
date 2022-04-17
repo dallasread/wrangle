@@ -1,5 +1,5 @@
 const REFRESH_RATE = 20
-const JUMP_HEIGHT = 7
+const JUMP_HEIGHT = 9
 const JUMP_DELAY_AT_MAX = 3
 const ACTION_A_TIMERS = []
 
@@ -46,10 +46,21 @@ class Level {
   }
 
   updateFromRemote (character, data) {
-    character.positionX = data.positionX
-    character.positionY = data.positionY
-    character.reverse = data.reverse
-    character.color = data.color
+    if (character.positionY !== data.positionY) {
+      this.updateY(character, data.positionY - character.positionY)
+    }
+
+    if (character.positionX !== data.positionX) {
+      character.positionX = data.positionX
+    }
+
+    if (character.reverse !== data.reverse) {
+      character.reverse = data.reverse
+    }
+
+    if (!character.color) {
+      character.color = data.color
+    }
   }
 
   actionA (character, done) {
