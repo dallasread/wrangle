@@ -81,6 +81,8 @@ export default {
     })
 
     this.$refs.dpad.addEventListener('touchmove', (event) => {
+      event.preventDefault()
+
       if (!event.touches) {
         return
       }
