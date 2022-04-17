@@ -51,6 +51,10 @@ html {
   box-sizing: border-box;
 }
 
+html, body {
+  overflow: hidden;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
   -webkit-touch-callout: none;
