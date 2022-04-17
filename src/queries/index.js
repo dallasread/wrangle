@@ -13,6 +13,10 @@ class Queries {
     return this.state.findAll('characters')
   }
 
+  findAllCPUs () {
+    return this.state.findAll('cpus')
+  }
+
   characterPosition (level, character, isStatic) {
     let position = ''
 

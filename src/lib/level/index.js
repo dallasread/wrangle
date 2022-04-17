@@ -8,16 +8,18 @@ class Level {
     ]
   }
 
-  updateX (character, val) {
+  updateX (character, val, dontShiftLevel) {
     if (val < 0 && !character.reverse) {
       character.reverse = true
     } else if (val > 0 && character.reverse) {
       character.reverse = false
     } else {
-      character.positionX += val
+      character.positionX += character.speed * val
     }
 
-    this.offsetX -= val
+    if (!dontShiftLevel) {
+      this.offsetX -= val
+    }
   }
 
   updateY (character, val) {

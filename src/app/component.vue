@@ -15,7 +15,7 @@ export default {
   props: {
     state: {
       type: Object,
-      default: () => new State({ characters: [] })
+      default: () => new State({ characters: [], cpus: [] })
     },
     wire: {
       type: Object,

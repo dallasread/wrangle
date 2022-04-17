@@ -1,7 +1,7 @@
 import uniqId from 'uniq-id'
 
 const generateId = uniqId.generateUUID('xxxxyxxxxyxxxxyxxxxyxxxxyxxxxyxxxxyxxxxy', 32)
-const COLORS = ['red', 'blue', 'green', 'yellow', 'pink', 'purple', 'gray', 'cyan']
+const COLORS = ['red', 'blue', 'green', 'yellow', 'pink', 'purple', 'gray', 'cyan', 'green', 'teal', 'rebeccapurple', 'maroon']
 const getOption = (options, attr, defaultValue) => {
   return typeof options[attr] === 'undefined' ? defaultValue : options[attr]
 }
@@ -15,6 +15,7 @@ class Character {
     this.positionX = getOption(options, 'positionX', 0)
     this.positionY = getOption(options, 'positionY', 0)
     this.reverse = getOption(options, 'reverse', false)
+    this.speed = getOption(options, 'speed', 1)
   }
 }
 

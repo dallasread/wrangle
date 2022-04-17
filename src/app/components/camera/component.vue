@@ -13,6 +13,13 @@
       :level="level"
       :character="character"
     />
+    <Character
+      v-for="cpu in cpus"
+      :key="`cpu-${cpu.id}`"
+      :app="app"
+      :level="level"
+      :character="cpu"
+    />
     <Level
       :app="app"
       :level="level"
@@ -29,6 +36,18 @@ export default {
     Character,
     Level
   },
-  props: ['app', 'level', 'characters', 'character']
+  props: ['app', 'level', 'characters', 'character'],
+  computed: {
+    cpus () {
+      return this.app.queries.findAllCPUs()
+    }
+  },
+  mounted () {
+    this.app.commands.buildCPUs()
+
+    this.cpus.forEach((cpu) => {
+      this.app.commands.paceCPU(this.level, cpu, 1, -1)
+    })
+  }
 }
 </script>

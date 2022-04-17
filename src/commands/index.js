@@ -54,6 +54,34 @@ class Commands {
       this.state.removeAll('characters', [character])
     })
   }
+
+  buildCPU (positionX) {
+    return new Character({ color: '#0d003d', positionX, speed: 0.2 })
+  }
+
+  buildCPUs () {
+    this.state.add('cpus', [this.buildCPU(30)])
+    this.state.add('cpus', [this.buildCPU(-30)])
+    this.state.add('cpus', [this.buildCPU(70)])
+    this.state.add('cpus', [this.buildCPU(-70)])
+    this.state.add('cpus', [this.buildCPU(100)])
+    this.state.add('cpus', [this.buildCPU(-100)])
+    this.state.add('cpus', [this.buildCPU(125)])
+    this.state.add('cpus', [this.buildCPU(-125)])
+  }
+
+  paceCPU (level, cpu, delta, direction) {
+    delta += 1 * direction
+    level.updateX(cpu, 1 * direction, true)
+
+    if (delta > 40 || delta < -40) {
+      direction *= -1
+    }
+
+    setTimeout(() => {
+      this.paceCPU(level, cpu, delta, direction)
+    }, 30)
+  }
 }
 
 export default Commands
