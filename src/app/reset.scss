@@ -53,6 +53,7 @@ html {
 
 html, body {
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 *, *:before, *:after {
