@@ -6,24 +6,30 @@
       :character="character"
       :is-static="true"
     />
-    <Character
-      v-for="character in characters"
-      :key="`character-${character.id}`"
-      :app="app"
-      :level="level"
-      :character="character"
-    />
-    <Character
-      v-for="cpu in cpus"
-      :key="`cpu-${cpu.id}`"
-      :app="app"
-      :level="level"
-      :character="cpu"
-    />
-    <Level
-      :app="app"
-      :level="level"
-    />
+    <div>
+      <Character
+        v-for="character in characters"
+        :key="`character-${character.id}`"
+        :app="app"
+        :level="level"
+        :character="character"
+      />
+    </div>
+    <div>
+      <Character
+        v-for="cpu in cpus"
+        :key="`cpu-${cpu.id}`"
+        :app="app"
+        :level="level"
+        :character="cpu"
+      />
+    </div>
+    <div>
+      <Level
+        :app="app"
+        :level="level"
+      />
+    </div>
   </div>
 </template>
 
