@@ -3,7 +3,7 @@
     <Camera
       :app="app"
       :level="level"
-      :character="character"
+      :characters="characters"
     />
     <Controller
       :update-x="app.commands.updateX(level, character)"
@@ -17,8 +17,7 @@
 <script>
 import Camera from '@/app/components/camera/component.vue'
 import Controller from '@/app/components/controller/component.vue'
-import Character from '@/app/lib/character/index.js'
-import Level from '@/app/lib/level/index.js'
+import Level from '@/lib/level/index.js'
 
 export default {
   components: {
@@ -28,12 +27,14 @@ export default {
   props: ['app'],
   data () {
     return {
-      character: new Character(),
-      level: new Level()
+      characters: this.app.queries.findAllCharacters(),
+      level: new Level(),
+      character: null
     }
   },
   mounted () {
-    this.app.commands.listen(this.character)
+    this.character = this.app.commands.addCharacter()
+    this.app.commands.listen(this.level)
   }
 }
 </script>

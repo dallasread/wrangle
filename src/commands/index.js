@@ -1,3 +1,5 @@
+import Character from '@/lib/character/index.js'
+
 class Commands {
   constructor (options) {
     for (const key in options) {
@@ -27,15 +29,19 @@ class Commands {
     }
   }
 
-  updateCharacter (character, data) {
-    character.updateAbsoluteX(data.positionX)
-    character.updateAbsoluteY(data.positionY)
-    character.updateReverse(data.reverse)
+  addCharacter (data) {
+    return this.state.add('characters', [new Character(data)])[0]
   }
 
-  listen (character) {
+  listen (level) {
     this.wire.socket.on('move', (data) => {
-      this.updateCharacter(character, data)
+      const character = this.queries.findCharacter(data.id)
+
+      if (character) {
+        return level.updateFromRemote(character, data)
+      }
+
+      this.addCharacter(data)
     })
   }
 }

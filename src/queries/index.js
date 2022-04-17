@@ -1,6 +1,3 @@
-const MIDLINE_X = window.outerWidth / 2.5
-const MIDLINE_Y = window.outerHeight / 2
-
 class Queries {
   constructor (options) {
     for (const key in options) {
@@ -8,7 +5,18 @@ class Queries {
     }
   }
 
+  findCharacter (id) {
+    return this.state.findById('characters', id)
+  }
+
+  findAllCharacters () {
+    return this.state.findAll('characters')
+  }
+
   characterPosition (level, character) {
+    const MIDLINE_X = window.outerWidth / 2.5
+    const MIDLINE_Y = window.outerHeight / 2
+
     let position = ''
 
     position += `left: ${MIDLINE_X + (character.positionX * character.quickness)}px;`

@@ -6,7 +6,7 @@
 import Commands from '@/commands/index.js'
 import State from '@/state/index.js'
 import Queries from '@/queries/index.js'
-import Wire from '@/app/lib/wire/index.js'
+import Wire from '@/lib/wire/index.js'
 import uniqId from 'uniq-id'
 
 const generateId = uniqId.generateUUID('xxxxyxxxxyxxxxyxxxxyxxxxyxxxxyxxxxyxxxxy', 32)
@@ -15,7 +15,7 @@ export default {
   props: {
     state: {
       type: Object,
-      default: () => new State({})
+      default: () => new State({ characters: [] })
     },
     wire: {
       type: Object,
