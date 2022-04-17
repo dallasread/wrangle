@@ -26,12 +26,10 @@ class Queries {
 
     style += `top: calc(50% + ${4.5 - character.positionY}rem);`
 
-    if (character.reverse) {
-      style += 'transform: scaleX(-1);'
-    }
-
     if (character.splat) {
-      style += 'transform:scale(1.33, 0.5); margin-top: 1rem;'
+      style += `transform: scale(${character.reverse ? '-' : ''}1.33, 0.5); margin-top: 1rem;`
+    } else if (character.reverse) {
+      style += 'transform: scaleX(-1);'
     }
 
     return style

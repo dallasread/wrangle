@@ -25,6 +25,7 @@ export default {
     top: calc(50% + 4.5rem);
     left: calc(50% - 2.5rem);
     width: 5rem;
-    transition: margin 30ms linear;
+    transition: top 30ms linear;
+    transition: transform 140ms linear;
   }
 </style>
