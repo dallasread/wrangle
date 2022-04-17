@@ -21,7 +21,7 @@ export default {
 
 <style lang="scss">
   .character {
-    width: 6rem;
+    width: 5rem;
     position: fixed;
     transition: margin 30ms linear;
   }

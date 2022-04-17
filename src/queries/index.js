@@ -14,14 +14,11 @@ class Queries {
   }
 
   characterPosition (level, character) {
-    const MIDLINE_X = window.outerWidth / 2.5
-    const MIDLINE_Y = window.outerHeight / 2
-
     let position = ''
 
-    position += `left: ${MIDLINE_X + (character.positionX * character.quickness)}px;`
-    position += `top: ${MIDLINE_Y}px;`
-    position += `margin-top: ${character.positionY * -(character.quickness / 7.5)}rem;`
+    position += `left: calc(50% + ${character.positionX * character.quickness}px);`
+    position += 'top: calc(50% + 4.5rem);'
+    position += `margin-top: ${character.positionY * -2.5}rem;`
 
     if (character.reverse) {
       position += 'transform: scaleX(-1)'

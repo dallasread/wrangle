@@ -7,15 +7,18 @@
       :level="level"
       :character="character"
     />
+    <Level />
   </div>
 </template>
 
 <script>
 import Character from '@/app/components/character/component.vue'
+import Level from '@/app/components/level/component.vue'
 
 export default {
   components: {
-    Character
+    Character,
+    Level
   },
   props: ['app', 'level', 'characters']
 }

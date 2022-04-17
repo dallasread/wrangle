@@ -1,6 +1,12 @@
 const REFRESH_RATE = 30
 
 class Level {
+  constructor () {
+    this.bgItems = [
+      // new Tree(5, 0)
+    ]
+  }
+
   updateX (character, val) {
     if (val < 0 && !character.reverse) {
       character.reverse = true
