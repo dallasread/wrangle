@@ -45,8 +45,8 @@ export default {
   mounted () {
     this.app.commands.buildCPUs()
 
-    this.cpus.forEach((cpu) => {
-      this.app.commands.paceCPU(this.level, cpu, 1, -1)
+    this.cpus.forEach((cpu, index) => {
+      this.app.commands.paceCPU(this.level, cpu, 1, index % 2 === 0 ? -1 : 1)
     })
   }
 }

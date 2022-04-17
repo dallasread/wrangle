@@ -61,13 +61,14 @@ class Commands {
 
   buildCPUs () {
     this.state.add('cpus', [this.buildCPU(30)])
+    this.state.add('cpus', [this.buildCPU(80)])
+    this.state.add('cpus', [this.buildCPU(150)])
+    this.state.add('cpus', [this.buildCPU(245)])
+    this.state.add('cpus', [this.buildCPU(305)])
     this.state.add('cpus', [this.buildCPU(-30)])
-    this.state.add('cpus', [this.buildCPU(70)])
-    this.state.add('cpus', [this.buildCPU(-70)])
-    this.state.add('cpus', [this.buildCPU(100)])
     this.state.add('cpus', [this.buildCPU(-100)])
-    this.state.add('cpus', [this.buildCPU(125)])
-    this.state.add('cpus', [this.buildCPU(-125)])
+    this.state.add('cpus', [this.buildCPU(-160)])
+    this.state.add('cpus', [this.buildCPU(-225)])
   }
 
   paceCPU (level, cpu, delta, direction) {
