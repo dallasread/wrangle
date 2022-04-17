@@ -29,8 +29,12 @@ class Commands {
     }
   }
 
+  buildCharacter (data) {
+    return new Character(data)
+  }
+
   addCharacter (data) {
-    return this.state.add('characters', [new Character(data)])[0]
+    return this.state.add('characters', [this.buildCharacter(data)])[0]
   }
 
   listen (level) {

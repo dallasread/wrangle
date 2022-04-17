@@ -2,6 +2,7 @@ const REFRESH_RATE = 30
 
 class Level {
   constructor () {
+    this.offsetX = 0
     this.bgItems = [
       // new Tree(5, 0)
     ]
@@ -15,6 +16,8 @@ class Level {
     } else {
       character.positionX += val
     }
+
+    this.offsetX -= val
   }
 
   updateY (character, val) {

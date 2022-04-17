@@ -1,6 +1,7 @@
 <template>
   <div
     class="level"
+    :style="app.queries.levelPosition(level)"
   />
   <div
     class="level-ground"
@@ -9,6 +10,7 @@
 
 <script>
 export default {
+  props: ['app', 'level']
 }
 </script>
 

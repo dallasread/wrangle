@@ -4,6 +4,7 @@
       :app="app"
       :level="level"
       :characters="characters"
+      :character="character"
     />
     <Controller
       :update-x="app.commands.updateX(level, character)"
@@ -28,12 +29,11 @@ export default {
   data () {
     return {
       characters: this.app.queries.findAllCharacters(),
-      level: new Level(),
-      character: null
+      character: this.app.commands.buildCharacter(),
+      level: new Level()
     }
   },
   mounted () {
-    this.character = this.app.commands.addCharacter()
     this.app.commands.listen(this.level)
   }
 }

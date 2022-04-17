@@ -1,13 +1,22 @@
 <template>
   <div class="camera">
     <Character
+      :app="app"
+      :level="level"
+      :character="character"
+      :is-static="true"
+    />
+    <Character
       v-for="character in characters"
       :key="`character-${character.id}`"
       :app="app"
       :level="level"
       :character="character"
     />
-    <Level />
+    <Level
+      :app="app"
+      :level="level"
+    />
   </div>
 </template>
 
@@ -20,6 +29,6 @@ export default {
     Character,
     Level
   },
-  props: ['app', 'level', 'characters']
+  props: ['app', 'level', 'characters', 'character']
 }
 </script>

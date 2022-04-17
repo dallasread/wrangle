@@ -14,7 +14,6 @@ class Character {
     this.color = getOption(options, 'color', COLORS[Math.floor(Math.random() * COLORS.length)])
     this.positionX = getOption(options, 'positionX', 0)
     this.positionY = getOption(options, 'positionY', 0)
-    this.quickness = getOption(options, 'quickness', 20)
     this.reverse = getOption(options, 'reverse', false)
   }
 }
