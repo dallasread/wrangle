@@ -43,6 +43,12 @@ class Commands {
 
       this.addCharacter(data)
     })
+
+    this.wire.socket.on('remove', (data) => {
+      const character = this.queries.findCharacter(data.id)
+
+      this.state.removeAll('characters', [character])
+    })
   }
 }
 

@@ -61,7 +61,9 @@ class State {
     instances.forEach((instance) => {
       const index = this.data[model].indexOf(instance)
 
-      this.data[model].splice(index, 1)
+      if (index !== -1) {
+        this.data[model].splice(index, 1)
+      }
     })
   }
 }
