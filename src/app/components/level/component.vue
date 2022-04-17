@@ -17,7 +17,7 @@ export default {
 <style lang="scss">
   .level-ground {
     background: #523922;
-    position: absolute;
+    position: fixed;
     top: calc(50% + 9rem);
     bottom: 0;
     left: 0;
@@ -26,7 +26,7 @@ export default {
 
   .level {
     background: #bafefc;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
