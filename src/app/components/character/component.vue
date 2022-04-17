@@ -1,9 +1,11 @@
 <template>
-  <div
-    :style="app.queries.characterPosition(level, character, isStatic)"
-    class="character"
-    v-html="img"
-  />
+  <div>
+    <div
+      :style="app.queries.characterPosition(level, character, isStatic)"
+      class="character"
+      v-html="img"
+    />
+  </div>
 </template>
 
 <script>
